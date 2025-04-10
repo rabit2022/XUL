@@ -2,7 +2,7 @@
 
 欢迎使用 XUL，这是一个 由模版 生成 对应 的 XUL 控件的 JavaScript 库，主要用于为 Flash 提供 简洁的 XUL API。
 
-### 项目概述
+## 项目概述
 
 1. **目标**：为 Flash 提供 XUL（XML User Interface Language） 支持，通过读取 模版 文件并从中提取对应的控件，最终形成简洁的
    API。
@@ -10,7 +10,7 @@
 2. **参考项目**：[XJSFL](https://github.com/davestewart/xJSFL), 提供了 类似的 API。
 3. **实现方式**：通过解析 模版 文件，使用简洁的 API 生成 Flash 用户界面，并支持事件处理。
 
-### 示例代码分析
+## 示例代码分析
 
 #### 示例 1：简单对话框
 
@@ -114,7 +114,7 @@ console.log(dialog.xml);
 </dialog>
 ```
 
-### 打包方法
+## 打包方法
 
 - **命令**：`npm run build`
 - **结果**：打包后的文件可以在 Flash 环境中运行，但由于依赖较多且 Flash 是单线程环境，并且不支持异步加载，所以运行起来可能会比较卡顿。
