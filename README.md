@@ -1,6 +1,6 @@
 # XUL
 
-欢迎使用 XUL，这是一个 由模版 生成 对应 的 XUL 控件的 JavaScript 库。
+欢迎使用 XUL，这是一个 由模版 生成 对应 的 XUL 控件的 JavaScript 库，主要用于为 Flash 提供 简洁的 XUL API。
 
 ### 项目概述
 
