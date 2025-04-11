@@ -50,26 +50,12 @@ class Config {
         } else if (isFlash) {
             const dirname = $ProjectFileDir$;
 
+            // requirejs + text! 加载模板文件
             var template = '';
-            requirejs(
-                ['os', 'open'],
-                function (os, open) {
-                    var templatePath = os.path.join(
-                        dirname,
-                        './config/xul/',
-                        templateName
-                    );
-                    // with (open(templatePath, 'r')) {
-                    //     template = f.read();
-                    // }
-                    // 使用eval来执行非严格模式的代码
-                    eval(`
-                        with (open("${templatePath}", 'r')) {
-                            template = f.read();
-                        }
-                    `);
-                }
-            );
+            var templatePath ='text!./config/xul/' + templateName;
+            requirejs([templatePath], function (tm) {
+                template = tm;
+            })
 
             return template;
         } else {

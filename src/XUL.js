@@ -37,10 +37,10 @@ class XUL {
 
     // region properties
     get xml() {
-        return this.dialogBuilder.build(this.title, this.#content, this.columns);
+        return this.dialogBuilder.build(this.title, this._content, this.columns);
     }
 
-    get #content() {
+    get _content() {
         let _content = '';
 
         let controls = this.controlManager.controls;
@@ -93,16 +93,6 @@ class XUL {
 
         const xml = this.templates[type];
         let newControl = ControlFactory.create(type, id, label, this, xml, attributes, items);
-        // // 更新控件的属性
-        // var newControl = origionalControl;
-        // newControl.label = label;
-        // newControl.attributes = attributes;
-        // if (items) {
-        //     newControl.items = items;
-        // }
-        //
-        // newControl._setNewAttributes();
-
 
         this.controlManager.updateControl(newControl);
 
@@ -117,7 +107,7 @@ class XUL {
     }
 
     // region 控件创建方法
-    #addControl(type, id, label, attributes, items) {
+    _addControl(type, id, label, attributes, items) {
         const xml = this.templates[type];
 
         const control = ControlFactory.create(type, id, label, this, xml, attributes, items);
@@ -131,42 +121,42 @@ class XUL {
     }
 
     addLabel(label, id) {
-        return this.#addControl('label', id, label);
+        return this._addControl('label', id, label);
     }
 
     addTextbox(label, id, attributes) {
-        return this.#addControl('textbox', id, label, attributes);
+        return this._addControl('textbox', id, label, attributes);
     }
 
     addColorchip(label, id, attributes) {
-        return this.#addControl('colorchip', id, label, attributes);
+        return this._addControl('colorchip', id, label, attributes);
     }
 
     addPopupSlider(label, id, attributes) {
-        return this.#addControl('popupslider', id, label, attributes);
+        return this._addControl('popupslider', id, label, attributes);
     }
 
     addCheckbox(label, id, attributes) {
-        return this.#addControl('checkbox', id, label, attributes);
+        return this._addControl('checkbox', id, label, attributes);
     }
 
     // endregion simple controls
 
     addButton(label, id, attributes) {
-        return this.#addControl('button', id, label, attributes);
+        return this._addControl('button', id, label, attributes);
     }
 
     addTargetList(label, id, attributes) {
-        return this.#addControl('targetlist', id, label, attributes);
+        return this._addControl('targetlist', id, label, attributes);
     }
 
     addChooseFile(label, id, attributes) {
-        return this.#addControl('choosefile', id, label, attributes);
+        return this._addControl('choosefile', id, label, attributes);
     }
 
     // region compound controls
     addListbox(label, id, attributes, items) {
-        return this.#addControl('listbox', id, label, attributes, items);
+        return this._addControl('listbox', id, label, attributes, items);
     }
 
     // endregion compound controls
@@ -174,42 +164,42 @@ class XUL {
     // region NON-VISUAL CONTROLS
 
     addMenuList(label, id, attributes, items) {
-        return this.#addControl('menulist', id, label, attributes, items);
+        return this._addControl('menulist', id, label, attributes, items);
     }
 
     addRadioGroup(label, id, attributes, items) {
-        return this.#addControl('radiogroup', id, label, attributes, items);
+        return this._addControl('radiogroup', id, label, attributes, items);
     }
 
     addCheckboxGroup(label, id, attributes, items) {
-        return this.#addControl('checkboxgroup', id, label, attributes, items);
+        return this._addControl('checkboxgroup', id, label, attributes, items);
     }
 
     addSeparator(id) {
-        return this.#addControl('separator', id);
+        return this._addControl('separator', id);
     }
 
     // endregion NON-VISUAL CONTROLS
 
     // spacer
     addSpacer(id) {
-        return this.#addControl('spacer', id);
+        return this._addControl('spacer', id);
     }
 
     // endregion 控件创建方法
 
     addProperty(id) {
-        return this.#addControl('property', id);
+        return this._addControl('property', id);
     }
 
     addScript(id, content) {
-        return this.#addControl('script', id, '', {content: content});
+        return this._addControl('script', id, '', {content: content});
     }
 
     // endregion properties
 
     addFlash(id, attributes) {
-        return this.#addControl('flash', id, '', attributes);
+        return this._addControl('flash', id, '', attributes);
     }
 
     /**
